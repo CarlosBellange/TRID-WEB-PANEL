@@ -1,0 +1,13 @@
+<nb-card size="small">
+    <nb-card-header>Job Sub Category</nb-card-header>
+    <nb-card-body class="example-items-col">
+        
+        <!-- <nb-select placeholder="Select Job Category" status="success" >
+            <nb-option value="1" *ngFor="let category of jobCategory" value="category._id">{{category.name.en}}</nb-option>
+            
+        </nb-select> -->
+      <ng2-smart-table [settings]="settings" [source]="source" (create)="openaddmodal()" (edit)="edit($event)" (delete)="delete($event)"></ng2-smart-table>    
+          
+    </nb-card-body>
+    
+  </nb-card>

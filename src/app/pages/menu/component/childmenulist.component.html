@@ -1,0 +1,9 @@
+<nb-card>
+  <nb-card-header>
+    Child Menu
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (create)="openaddmodal()" (edit)="onCustomAction($event)"
+      (delete)="delete($event)"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>

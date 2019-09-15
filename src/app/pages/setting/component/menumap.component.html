@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Access Area</nb-card-header>
+      <nb-card-body>
+        <div class="input-group">
+          <select class="form-control" (change)="roleWiseMenu($event)">
+            <option value="">Select Roles</option>
+            <option *ngFor="let r of roles" value="{{ r?._id }}">{{r?.en}}</option>
+          </select>
+        </div>
+        <div *ngFor="let d of data">
+          <div class="row">
+            <div class="col-lg-10">
+              <div class="alert alert-primary" role="alert">
+                <strong>{{d?.title}}  </strong>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <button nbButton status="danger" (click)="deleteMenuFromRole(d)" [class.btn-pulse]="false"> <i _ngcontent-c54="" class="nb-trash"></i> </button>
+            </div>
+          </div>
+        </div>
+
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-6">
+    <form (ngSubmit)="addMenuToRole()" aria-labelledby="title" [formGroup]="AddMenuToRole">
+      <nb-card>
+        <nb-card-header>Add controls</nb-card-header>
+        <nb-card-body>
+
+          <div class="input-group">
+            <select class="form-control" formControlName="roleID">
+              <option value="">Select Roles</option>
+              <option *ngFor="let r of roles" value="{{ r?._id }}">{{r?.en}}</option>
+            </select>
+          </div>
+          <ng-container *ngIf="formservice.isFieldValid(AddMenuToRole,'roleID')">
+            <p>This field is required</p>
+          </ng-container>
+
+          <div class="input-group">
+            <select class="form-control" formControlName="menuID">
+              <option value="">Select Menu</option>
+              <option *ngFor="let m of menus" value="{{ m?._id }}">{{m?.title}}</option>
+            </select>
+
+          </div>
+          <ng-container *ngIf="formservice.isFieldValid(AddMenuToRole,'menuID')">
+            <p>This field is required</p>
+          </ng-container>
+          <div class="input-group">
+            <button nbButton fullWidth status="success" [disabled]="!AddMenuToRole.valid" [class.btn-pulse]="false">
+              Save </button>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

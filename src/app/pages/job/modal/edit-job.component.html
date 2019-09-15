@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="updateJob()" aria-labelledby="title" [formGroup]="createJob">
+        <nb-card>
+          <nb-card-header>Create Job</nb-card-header>
+          <nb-card-body>
+  
+            <div class="form-group">
+              <select class="form-control" formControlName="companyId">
+                <option value="">--Select Company--</option>
+                <option *ngFor="let res of companyData" [value]="res?._id">{{res?.compName}}</option>
+              </select>
+              <ng-container *ngIf="formservice.isFieldValid(createJob,'companyId')">
+                <p>This field is required</p>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <input type="text" placeholder="Job Name" class="form-control" formControlName="jobName">
+  
+              <ng-container *ngIf="formservice.isFieldValid(createJob,'jobName')">
+                <p>This field is required</p>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <select class="form-control" formControlName="jobCategoryId"
+                (change)="getJobSubCategoryByJobId($event.target.value)">
+                <option value="">--Select Job Category--</option>
+                <option *ngFor="let res of jobCategory_datas" [value]="res?._id">{{res?.en}}</option>
+              </select>
+              <ng-container *ngIf="formservice.isFieldValid(createJob,'jobCategoryId')">
+                <p>This field is required</p>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <select class="form-control" formControlName="jobSubCategoryId">
+                <option value="">--Select Job Sub Category--</option>
+                <option *ngFor="let res of jobSubCategory_datas" [value]="res?._id">{{res?.en}}</option>
+              </select>
+            </div>
+  
+            <div class="form-group">
+              <textarea placeholder="Job Description" class="form-control" formControlName="jobDescription"></textarea>
+              <ng-container *ngIf="formservice.isFieldValid(createJob,'jobDescription')">
+                <p>This field is required</p>
+              </ng-container>
+            </div>
+            
+          </nb-card-body>
+          <nb-card-body>
+            <button nbButton fullWidth status="success" [disabled]="!createJob.valid" [class.btn-pulse]="false"> Save
+            </button>
+          </nb-card-body>
+        </nb-card>
+      </form>
+    </div>
+  </div>

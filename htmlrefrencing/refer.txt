@@ -1,0 +1,285 @@
+
+===================================Iot Dashboard Chart=======================================
+<div class="row">
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+    <ngx-temperature></ngx-temperature>
+  </div>
+
+  <div class="col-xxxl-9 col-xxl-8 col-lg-7 col-md-6">
+    <ngx-electricity></ngx-electricity>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-9 col-xl-12">
+    <ngx-rooms></ngx-rooms>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-lg-7 col-md-6">
+    <ngx-contacts></ngx-contacts>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-lg-5 col-md-6">
+    <ngx-solar [chartValue]="solarValue"></ngx-solar>
+
+    <ngx-kitten></ngx-kitten>
+  </div>
+
+  <div class="col-xxxl-3 col-xxl-4 col-md-5">
+   
+  </div>
+
+  <div class="col-xxxl-6 col-xxl-12 col-md-7">
+    <ngx-security-cameras></ngx-security-cameras>
+  </div>
+</div>
+
+=================================company icono =========================================
+ <a href="#" class="btn btn-hero-success main-btn">
+            <i class="ion ion-social-github"></i> <span>Support Us</span>
+          </a>
+===================================menu removed=====================================
+{
+    title: 'E-commerce',
+    icon: 'nb-e-commerce',
+    link: '/pages/dashboard',
+    home: true,
+  },
+
+
+----------------extracomponenet--------------
+{
+        title: 'Stepper',
+        link: '/pages/extra-components/stepper',
+      },
+      {
+        title: 'List',
+        link: '/pages/extra-components/list',
+      },
+      {
+        title: 'Infinite List',
+        link: '/pages/extra-components/infinite-list',
+      },
+      {
+        title: 'Form Inputs',
+        link: '/pages/extra-components/form-inputs',
+      },
+      {
+        title: 'Accordion',
+        link: '/pages/extra-components/accordion',
+      },
+      {
+        title: 'Progress Bar',
+        link: '/pages/extra-components/progress-bar',
+      },
+      {
+        title: 'Spinner',
+        link: '/pages/extra-components/spinner',
+      },
+      {
+        title: 'Alert',
+        link: '/pages/extra-components/alert',
+      },
+      {
+        title: 'Tree',
+        link: '/pages/extra-components/tree',
+      },
+      {
+        title: 'Tabs',
+        link: '/pages/extra-components/tabs',
+      },
+      {
+        title: 'Calendar Kit',
+        link: '/pages/extra-components/calendar-kit',
+      },
+      {
+        title: 'Chat',
+        link: '/pages/extra-components/chat',
+      },
+
+=========================primary menu removed========================================
+ {
+    title: 'Forms',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Form Inputs',
+        link: '/pages/forms/inputs',
+      },
+      {
+        title: 'Form Layouts',
+        link: '/pages/forms/layouts',
+      },
+      {
+        title: 'Buttons',
+        link: '/pages/forms/buttons',
+      },
+      {
+        title: 'Datepicker',
+        link: '/pages/forms/datepicker',
+      },
+    ],
+  },
+  {
+    title: 'UI Features',
+    icon: 'nb-keypad',
+    link: '/pages/ui-features',
+    children: [
+      {
+        title: 'Grid',
+        link: '/pages/ui-features/grid',
+      },
+      {
+        title: 'Icons',
+        link: '/pages/ui-features/icons',
+      },
+      {
+        title: 'Typography',
+        link: '/pages/ui-features/typography',
+      },
+      {
+        title: 'Animated Searches',
+        link: '/pages/ui-features/search-fields',
+      },
+    ],
+  },
+  {
+    title: 'Modal & Overlays',
+    icon: 'nb-layout-default',
+    children: [
+      {
+        title: 'Dialog',
+        link: '/pages/modal-overlays/dialog',
+      },
+      {
+        title: 'Window',
+        link: '/pages/modal-overlays/window',
+      },
+      {
+        title: 'Popover',
+        link: '/pages/modal-overlays/popover',
+      },
+      {
+        title: 'Toastr',
+        link: '/pages/modal-overlays/toastr',
+      },
+      {
+        title: 'Tooltip',
+        link: '/pages/modal-overlays/tooltip',
+      },
+    ],
+  },
+  {
+    title: 'Bootstrap',
+    icon: 'nb-gear',
+    children: [
+      {
+        title: 'Form Inputs',
+        link: '/pages/bootstrap/inputs',
+      },
+      {
+        title: 'Buttons',
+        link: '/pages/bootstrap/buttons',
+      },
+      {
+        title: 'Modal',
+        link: '/pages/bootstrap/modal',
+      },
+    ],
+  },
+  {
+    title: 'Maps',
+    icon: 'nb-location',
+    children: [
+      {
+        title: 'Google Maps',
+        link: '/pages/maps/gmaps',
+      },
+      {
+        title: 'Leaflet Maps',
+        link: '/pages/maps/leaflet',
+      },
+      {
+        title: 'Bubble Maps',
+        link: '/pages/maps/bubble',
+      },
+      {
+        title: 'Search Maps',
+        link: '/pages/maps/searchmap',
+      },
+    ],
+  },
+  {
+    title: 'Charts',
+    icon: 'nb-bar-chart',
+    children: [
+      {
+        title: 'Echarts',
+        link: '/pages/charts/echarts',
+      },
+      {
+        title: 'Charts.js',
+        link: '/pages/charts/chartjs',
+      },
+      {
+        title: 'D3',
+        link: '/pages/charts/d3',
+      },
+    ],
+  },
+  {
+    title: 'Editors',
+    icon: 'nb-title',
+    children: [
+      {
+        title: 'TinyMCE',
+        link: '/pages/editors/tinymce',
+      },
+      {
+        title: 'CKEditor',
+        link: '/pages/editors/ckeditor',
+      },
+    ],
+  },
+  {
+    title: 'Tables',
+    icon: 'nb-tables',
+    children: [
+      {
+        title: 'Smart Table',
+        link: '/pages/tables/smart-table',
+      },
+    ],
+  },
+  {
+    title: 'Miscellaneous',
+    icon: 'nb-shuffle',
+    children: [
+      {
+        title: '404',
+        link: '/pages/miscellaneous/404',
+      },
+    ],
+  },
+  {
+    title: 'Auth',
+    icon: 'nb-locked',
+    children: [
+      {
+        title: 'Login',
+        link: '/auth/login',
+      },
+      {
+        title: 'Register',
+        link: '/auth/register',
+      },
+      {
+        title: 'Request Password',
+        link: '/auth/request-password',
+      },
+      {
+        title: 'Reset Password',
+        link: '/auth/reset-password',
+      },
+    ],
+  },

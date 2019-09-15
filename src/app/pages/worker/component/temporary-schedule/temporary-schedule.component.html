@@ -1,0 +1,120 @@
+<div class="over"></div>
+<div class="overlay" *ngIf="!viewButton"></div>
+<div class="row pt-3">
+    
+        <div class="col-md-4">
+            <div>
+                <ejs-calendar [isMultiSelection]='multiSelect' [min]="minDate" [max]="maxDate" [values]="selctedTempDays"
+                [showTodayButton]='false' (change)=getSelectedTempDates($event.values)></ejs-calendar>
+            </div>
+    
+        </div>
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-8 col-sm-12">
+    
+            <div class="container pl-5">
+                <br>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Date:</label>
+                            <div class="col-sm-7">
+                                <!-- {{item.date}} -->
+    
+                                <label for="inputEmail1" class="col-sm-6 col-form-label">3423</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Day:</label>
+                            <div class="col-sm-7">
+                                <!-- {{item.day}} -->
+                                <label for="inputEmail1" class="col-sm-6 col-form-label">3423Day</label>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Start Time:</label>
+                            <div class="col-sm-7">
+                                <!-- <input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime(i)"
+                                                formControlName="startTime" /> -->
+    
+                                <input class="inputLenth" nbInput [(ngModel)]="sTime" fieldSize="small"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">End Time:</label>
+                            <div class="col-sm-7">
+                                <!-- <input class="inputLenth" nbInput [(ngModel)]="eTime" (click)="openeTime(i)"
+                                                formControlName="endTime" /> -->
+    
+                                <input class="inputLenth" nbInput [(ngModel)]="eTime" fieldSize="small"/>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Working/hr:</label>
+                            <div class="col-sm-7">
+                                <!-- {{item.workhour}} -->
+                                <label for="inputEmail1" class="col-sm-6 col-form-label"> 324workhour</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Internal ex vat:</label>
+                            <div class="col-sm-7">
+                                <!-- <input class="inputLenth" formControlName="hourlyRate" [(ngModel)]="regularPrice"
+                                                nbInput (change)="changeRegularPrice(regularPrice)"> -->
+    
+                                <input class="inputLenth" [(ngModel)]="internalVat" nbInput fieldSize="tiny">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">External ex vat:</label>
+                            <div class="col-sm-7">
+                                <input class="inputLenth" [(ngModel)]="externalVat" nbInput fieldSize="tiny">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group row">
+                            <label for="inputEmail1" class="col-sm-3 col-form-label">Customer ex vat:</label>
+                            <div class="col-sm-7">
+                                <input class="inputLenth" [(ngModel)]="customerVat" nbInput fieldSize="tiny">
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+    
+        </div>
+    
+    </div>
+    
+    <nb-card *ngIf="viewButton">
+        <nb-card-body class="example-items-rows">
+            <!-- <button nbButton type="button" status="primary" (click)="setRegularScheduleToday()">set For Today</button> -->
+            <button nbButton type="button" status="info" (click)="setTemporarySchedule()">Set Temporary Schedule</button>
+        </nb-card-body>
+    </nb-card>

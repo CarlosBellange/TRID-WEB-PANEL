@@ -1,0 +1,233 @@
+<nb-alert status="success" class="alert">
+  <div class="row">
+    <div class="col-10">
+      <!-- <i class="nb-bar-chart"></i> -->
+      <i class="fas fa-chart-bar"></i>
+      Company Details
+    </div>
+    <!-- <div style="color: crimson;padding-left: 5%;" class="col-2">
+      Offline &nbsp;<i class="fas fa-circle"></i>
+    </div> -->
+  </div>
+</nb-alert>
+
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-2">
+        <div>
+          <img style="max-width: 130px;border: 2px solid #fff;" src="../../../../assets/images/no-user.jpg" />
+        </div>
+      </div>
+      <div class="col-4">
+        <div>
+          <nb-list>
+            <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+              <h6><b>Company Id:</b> &nbsp; {{companyDetails.compOrgId}}</h6>
+              <h6><b>Name:</b> &nbsp; {{companyDetails.compName}}</h6>
+              <h6><b>Permanent Address:</b> &nbsp; {{companyDetails.compAddress}}</h6>
+              <h6><b>Email:</b> &nbsp; {{companyDetails.email}}</h6>
+              <h6><b>Phone Number:</b> &nbsp; {{companyDetails.compPhoneNumber}}</h6>
+              <h6><b>Company Website:</b> &nbsp; {{companyDetails.compWebUrl}}</h6>
+
+            </nb-list-item>
+          </nb-list>
+        </div>
+      </div>
+      <div class="col-6">
+
+        <div class="row">
+            <div class="col-4">
+              <nb-card status="success">
+                <nb-card-header><h5 style="text-align: center">Total Workers</h5></nb-card-header>
+                <nb-card-body>
+                  <h2 style="text-align: center">0</h2>    
+                </nb-card-body>
+              </nb-card>
+            </div>
+
+            <div class="col-4">
+              <nb-card status="success">
+                <nb-card-header><h5 style="text-align: center">Total Earnings</h5></nb-card-header>
+                <nb-card-body>
+                  <h2 style="text-align: center">$8673</h2>
+                </nb-card-body>
+              </nb-card>
+            </div>
+            
+            <div class="col-4">
+              <nb-card status="success">
+                <nb-card-header><h5 style="text-align: center">Income Stat</h5></nb-card-header>
+                <nb-card-body>
+                  <h2 style="text-align: center">Statistics</h2>
+                </nb-card-body>
+              </nb-card>
+            </div>
+            
+        </div>
+
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col-7">
+        <div class="button">
+
+          <button nbButton size="small" status="warning" (click)="edit(companyDetails)">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit
+          </button>&nbsp;
+
+          <button nbButton size="small" status="info">
+            <i class="fa fa-comments-o" aria-hidden="true"></i>Chat
+          </button>&nbsp;
+
+          <button nbButton size="small" status="success" (click)="login(companyDetails)">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>Login
+          </button>
+        </div>
+        <br>
+      </div>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-6">
+        <nb-card status="info">
+          <nb-card-header><i class="fa fa-bars" aria-hidden="true"></i>
+            Service Details</nb-card-header>
+          <nb-card-body>
+            <div>
+              <nb-list>
+                <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+                  <h6>Service Type:</h6>
+                  <h6>Agreement Type:</h6>
+                  <h6>Collective Agreement Name: </h6>
+                  <h6>Tax Deduction Allow:</h6>
+                  <h6>Works On Government Project: </h6>
+                  <h6>Wants To See Unemployement List:</h6>
+                  <h6>Insurance Type:</h6>
+                </nb-list-item>
+              </nb-list>
+            </div>
+          </nb-card-body>
+
+        </nb-card>
+      </div>
+
+      <div class="col-6">
+        <nb-card status="info">
+          <nb-card-header><i class="fa fa-bars" aria-hidden="true"></i>
+            Bank Details</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+                <h6><b>Bank Account Number:</b> &nbsp; {{companyDetails.bankAccountNumber}}</h6>
+                <h6><b>Bank branch Name:</b> &nbsp; {{companyDetails.bankBranchName}}</h6>
+                <h6><b>Bank Branch Code:</b> &nbsp; {{companyDetails.bankBranchCode}}</h6>
+
+              </nb-list-item>
+            </nb-list>
+          </nb-card-body>
+
+        </nb-card>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-6">
+        <nb-card status="info">
+          <nb-card-header><i class="fa fa-bars" aria-hidden="true"></i>
+            Company Details</nb-card-header>
+          <nb-card-body>
+            <div>
+              <nb-list>
+                <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+                  <h6><b>Organization Id:</b> &nbsp; {{companyDetails.establish}}</h6>
+                  <h6><b>F-tax Number:</b> &nbsp; {{companyDetails.establish}}</h6>
+                  <h6><b>Experience:</b> &nbsp; {{companyDetails.establish}}</h6>
+                  <h6><b>Company History:</b> &nbsp; {{companyDetails.establish}}</h6>
+                  <h6><b>Owners:</b> &nbsp; {{companyDetails.establish}}</h6>
+                  <h6><b>Establish Date:</b> &nbsp; {{companyDetails.establish}}</h6>
+                </nb-list-item>
+              </nb-list>
+            </div>
+          </nb-card-body>
+
+        </nb-card>
+      </div>
+
+      <div class="col-6">
+        <nb-card status="info">
+          <nb-card-header><i class="fa fa-bars" aria-hidden="true"></i>
+            Rating & Reviews</nb-card-header>
+          <nb-card-body>
+            <nb-list>
+              <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+
+              </nb-list-item>
+            </nb-list>
+          </nb-card-body>
+
+        </nb-card>
+      </div>
+
+    </div>
+
+    <nb-card status="success">
+      <nb-card-header>Job & Employee Record</nb-card-header>
+      <nb-card-body>
+       
+        <div class="row">
+          <nb-accordion>
+            <nb-accordion-item #item>
+              <nb-accordion-item-header>
+                Jobs
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+    
+                <nb-tabset fullWidth>
+                  <nb-tab tabTitle="Ongoing">
+                    <h3>List of <strong>Ongoing Jobs</strong>.</h3>
+                    <ng2-smart-table [settings]="settings">
+                    </ng2-smart-table>
+                  </nb-tab>
+                  <nb-tab tabTitle="Completed">
+                    <h3>List of <strong>Completed Jobs</strong>.</h3>
+                    <ng2-smart-table [settings]="settings">
+                    </ng2-smart-table>
+                  </nb-tab>
+                  <nb-tab tabTitle="Future Bookings">
+                    <h3>List of <strong>Future Booking Jobs</strong>.</h3>
+                    <ng2-smart-table [settings]="settings">
+                    </ng2-smart-table>
+                  </nb-tab>
+                  <nb-tab tabTitle="Cancelled">
+                    <h3>List of <strong>Cancelled jobs</strong>.</h3>
+                    <ng2-smart-table [settings]="settings">
+                    </ng2-smart-table>
+                  </nb-tab>
+                </nb-tabset>
+    
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+    
+            <nb-accordion-item>
+              <nb-accordion-item-header>
+                Employees
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+                <ng2-smart-table [settings]="settings">
+                </ng2-smart-table>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+    
+          </nb-accordion>
+        </div>
+      </nb-card-body>
+      <!-- <nb-card-footer>By Wikipedia</nb-card-footer> -->
+    </nb-card>
+
+  </nb-card-body>
+</nb-card>

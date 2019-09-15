@@ -1,0 +1,218 @@
+<nb-alert status="success" class="alert">
+  <div class="row">
+    <div class="col-10">
+      <!-- <i class="nb-bar-chart"></i> -->
+      <i class="fas fa-chart-bar"></i>
+      Worker Details
+    </div>
+    <div style="color: crimson;padding-left: 5%;" class="col-2">
+      Offline &nbsp;<i class="fas fa-circle"></i>
+    </div>
+  </div>
+</nb-alert>
+
+<nb-card>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-2">
+        <div>
+          <img style="max-width: 130px;border: 2px solid #fff;" src="../../../../assets/images/no-user.jpg" />
+        </div>
+      </div>
+      <div class="col-4">
+        <div>
+          <nb-list>
+            <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+              <h6><b>Employee Id:</b> &nbsp; {{workerDetails._id}}</h6>
+              <h6><b>Employement Type:</b> &nbsp; </h6>
+              <h6><b>Name:</b> &nbsp; {{workerDetails.name}}</h6>
+              <h6><b>Rating:</b> &nbsp;</h6>
+              <h6><b>Email:</b> &nbsp; {{workerDetails.email}}</h6>
+              <h6><b>Phone Number:</b> &nbsp; {{workerDetails.mobile}}</h6>
+              <h6><b>UUID Number:</b> &nbsp; </h6>
+              <h6><b>Permanent Address:</b> &nbsp; {{workerDetails.address}}</h6>
+            </nb-list-item>
+          </nb-list>
+        </div>
+      </div>
+      <div class="col-3">
+        <div>
+          <nb-list>
+            <nb-list-item style="border-top: 0px solid #ebeef2;border-bottom: 0px solid #ebeef2;">
+              <!-- <h6><b> Service Category:</b> &nbsp; {{service.name.en}}</h6> -->
+
+              <h6><b> Service Category:</b> &nbsp; 4352343</h6>
+              <h6><b> Service Sub Category:</b> &nbsp; <p *ngFor="let subservice of subservices">{{subservice.title.en}}
+                </p>
+              </h6>
+
+              <!-- <h6><b> About Him:</b> </h6> -->
+
+              <h6><b> Languages:</b> &nbsp; {{workerDetails.languages}}</h6>
+
+              <h6><b> Experience:</b> &nbsp; {{workerDetails.experience}}</h6>
+
+              <h6><b> Previous Company:</b> &nbsp; {{workerDetails.previousCompany}}</h6>
+            </nb-list-item>
+          </nb-list>
+        </div>
+      </div>
+      <div class="col-3">
+        <div>
+          <nb-card class="color-card">
+
+            <nb-alert outline="success" class="color1">
+              <div class="row">
+                <div class="col-9">
+                  Date
+                </div>
+                <div class="col-3">
+                  NA
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="info" class="color2">
+              <div class="row">
+                <div class="col-9">
+                  Clock In
+                </div>
+                <div class="col-3">
+                  NA
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="success" class="color1">
+              <div class="row">
+                <div class="col-9">
+                  Clock Out
+                </div>
+                <div class="col-3">
+                  NA
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="info" class="color2">
+              <div class="row">
+                <div class="col-9">
+                  Total Work
+                </div>
+                <div class="col-3">
+                  Ohrs
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="success" class="color1">
+              <div class="row">
+                <div class="col-9">
+                  Overtime Clock In
+                </div>
+                <div class="col-3">
+                  NA
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="info" class="color2">
+              <div class="row">
+                <div class="col-9">
+                  Overtime Clock Out
+                </div>
+                <div class="col-3">
+                  NA
+                </div>
+              </div>
+            </nb-alert>
+            <nb-alert outline="success" class="color1">
+              <div class="row">
+                <div class="col-9">
+                  Total Overtime Work
+                </div>
+                <div class="col-3">
+                  0hrs
+                </div>
+              </div>
+            </nb-alert>
+
+          </nb-card>
+        </div>
+      </div>
+
+      <div class="button">
+        <button nbButton size="medium" status="info"><i class="fas fa-comment-dots"></i>&nbsp;Chat</button>&nbsp;
+        <button nbButton size="medium" status="danger"><i class="fas fa-portrait"></i>&nbsp;Portfolio</button>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+   
+        <div *ngIf="empType == 'permanant'">
+          <nb-card status="primary">
+            <nb-card-header>Regular Schedule</nb-card-header>
+            <nb-card-body>
+
+
+
+              <nb-accordion multi>
+                <nb-accordion-item *ngFor="let months of fullYear; index as i" #item>
+                  <nb-accordion-item-header>{{months[0].month}}</nb-accordion-item-header>
+                  <nb-accordion-item-body>
+
+                    <nb-tabset>
+                      <nb-tab *ngFor="let item of  months.slice(0,10); index as pos"
+                        tabTitle="{{shortNameOfDayObj[item.day]}} {{item.date}}" [disabled]="pos != 0">
+
+                      </nb-tab>
+                    </nb-tabset>
+                    <ngx-regular-schedule-details
+                      [regularScheduleBody]="workerDetails.timeScheduleData[0].regularSchedule" [data]="months[0]">
+                    </ngx-regular-schedule-details>
+                  </nb-accordion-item-body>
+                </nb-accordion-item>
+              </nb-accordion>
+
+            </nb-card-body>
+
+          </nb-card>
+
+          <nb-card status="success">
+            <nb-card-header>Overtime Schedule
+
+            </nb-card-header>
+            <nb-card-body>
+
+              <nb-accordion multi>
+                <nb-accordion-item *ngFor="let months of fullYear; index as i" #item>
+                  <nb-accordion-item-header>{{months[0].month}}</nb-accordion-item-header>
+                  <nb-accordion-item-body>
+
+                    <nb-tabset>
+                      <nb-tab *ngFor="let item of  months.slice(0,10); index as pos"
+                        tabTitle="{{shortNameOfDayObj[item.day]}} {{item.date}}" [disabled]="pos != 0">
+
+                      </nb-tab>
+                    </nb-tabset>
+                    <ngx-overtime-schedule class="over" [data]="months[0]" [viewButton]="show"
+                      [overtimeScheduleBody]="workerDetails.timeScheduleData[0].overtimeSchedule">
+                    </ngx-overtime-schedule>
+
+                  </nb-accordion-item-body>
+                </nb-accordion-item>
+              </nb-accordion>
+            </nb-card-body>
+
+          </nb-card>
+        </div>
+
+        <div *ngIf="empType == 'Temporery'">
+          <nb-card status="success">
+            <nb-card-header>Temporary Schedule
+
+            </nb-card-header>
+            <nb-card-body>
+                <ngx-temporary-schedule [viewButton]="show" 
+                [temporaryScheduleBody]="workerDetails.timeScheduleData[0].temporarySchedule"
+                ></ngx-temporary-schedule>
+            </nb-card-body>
+          </nb-card>
+        </div>
+
+      

@@ -1,0 +1,778 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+  <nb-card-header>EDIT COMAPNY</nb-card-header>
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>First step</ng-template>
+        <div class="row">
+          <div class="col-md-12">
+            <form (ngSubmit)="addCompanyStep1()" aria-labelledby="title" [formGroup]="AddCompanyStep1">
+              <nb-card>
+                <nb-card-body>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="Name" class="form-control" formControlName="compName">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compName')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+
+                        <label for="upload">
+                          <img class="img_logo" style="height:100px;width: 100px;" [src]="fileUrl">
+                          <input type="file" id="upload" style="display:none" (change)="chooseLogo($event)">
+                        </label>
+
+
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compLogo')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <div class="col-md-12 col-lg-6 col-xxxl-4">
+                          <nb-select multiple placeholder="Select Owners" formControlName="owners">
+                            <nb-option *ngFor="let owner of owners" [value]="owner?._id">{{owner.name}}</nb-option>
+                          </nb-select>
+                        </div>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'owners')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="number" placeholder="Phone Number" class="form-control"
+                          formControlName="compPhoneNumber">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compPhoneNumber')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select user role *</label>
+                        <select class="form-control" placeholder="--Select User Role--" formControlName="userRole">
+                          <option *ngFor="let role of roles" [value]="role._id">{{role.name.en}}</option>
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'userRole')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select Country *</label>
+                        <select class="form-control" formControlName="country">
+                          <option *ngFor="let country of countries" [value]="country._id">{{country.countryName.en}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'country')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select city *</label>
+                        <select class="form-control" formControlName="city">
+                          <option *ngFor="let city of cities" [value]="city?._id">{{city?.cityName.en}}</option> -->
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'city')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <textarea placeholder="Address" class="form-control" formControlName="compAddress"></textarea>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compAddress')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <!-- <div class="form-group">
+                        <textarea placeholder="Address" class="form-control" formControlName="compAddress"></textarea>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compAddress')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div> -->
+                      <nb-card>
+                        <nb-card-header>Google Maps with search</nb-card-header>
+                        <nb-card-body>
+                          <ngx-search (positionChanged)="updateLocation($event)"></ngx-search>
+                          <ngx-map [searchedLocation]="searchedLocation"></ngx-map>
+                        </nb-card-body>
+                      </nb-card>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="Organisation ID" class="form-control"
+                          formControlName="compOrgId">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compOrgId')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="F-Tax Number" class="form-control" formControlName="ftaxNumber">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'ftaxNumber')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <input type="text" placeholder="Compnay URL" class="form-control" formControlName="compWebUrl">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'compWebUrl')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <textarea placeholder="Company History" class="form-control"
+                          formControlName="comhistory"></textarea>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'comhistory')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+
+                   
+                    <div class="col-12">
+                      <input nbInput formControlName="establish" placeholder="Establish" [nbDatepicker]="formpicker">
+                      <nb-datepicker #formpicker></nb-datepicker>
+                      <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'establish')">
+                        <p>This field is required</p>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control" formControlName="email"
+                          pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})">
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'email')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select company categories *</label>
+                        <select class="form-control" formControlName="companyType">
+                          <option *ngFor="let companyType of companyTypes" [value]="companyType?._id">
+                            {{companyType?.title.en}}</option> -->
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep1,'companyType')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                </nb-card-body>
+                <nb-card-body>
+                  <!-- <button class="btn btn-success" (click)="showLargeModal()">Large modal</button> -->
+                  <!-- <button nbButton fullWidth status="success" [disabled]="!AddCompanyy.valid" [class.btn-pulse]="false"> Save
+                    </button> -->
+                </nb-card-body>
+              </nb-card>
+            </form>
+          </div>
+        </div>
+
+        <button nbButton disabled nbStepperNext>prev</button>&nbsp;
+        <button nbButton nbStepperNext [disabled]="!AddCompanyStep1.valid" (click)="addCompanyStep1()"
+          [class.btn-pulse]="false">next</button>
+      </nb-step>
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Second step</ng-template>
+        <form (ngSubmit)="addCompanyStep2()" aria-labelledby="title" [formGroup]="AddCompanyStep2">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+
+                <!-- <select class="form-control" formControlName="service">
+                  <option value="">--Select service--</option>
+
+                  <option *ngFor="let res of parent_datas" [value]="res?._id">{{res?.title}}</option>
+                </select> -->
+                <div class="col-md-12 col-lg-6 col-xxxl-4">
+                  <nb-select multiple placeholder="Select service" formControlName="service">
+                    <nb-option *ngFor="let service of services" [value]="service?._id">{{service.name.en}}</nb-option>
+                  </nb-select>
+                </div>
+                <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep2,'service')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-9">
+                    <label class="containercheck">Allow Credit</label>
+                  </div>
+                  <div class="col-3">
+                    <nb-radio-group formControlName="allowCredit" name="allowCredit"  (valueChange)="allowCredit($event)">
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+                    </nb-radio-group>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4" *ngIf="allowCreditInterested">
+              <div class="form-group">
+                <label>Select Organisation *</label>
+                <select class="form-control" (change)="alloCreditChoice($event)">
+                  <option value="">--select  choice--</option>
+                  <option value="1">Interested </option>
+                  <option value="0">Not Interested</option>
+                  <!-- <option *ngFor="let AllowCreditOrg of AllowCreditOrgs" [value]="AllowCreditOrg?._id"> -->
+                    <!-- {{AllowCreditOrg?.name.en}}</option> -->
+                </select>
+              </div>
+            </div>
+            <div class="col-4" *ngIf="isAllowCreditOrganisation">
+              <div class="form-group">
+                <label>Select Organisation *</label>
+                <select class="form-control" formControlName="allowCreditOrganistionId">
+                  <option value="">--Select Organisation--</option>
+                  <option *ngFor="let AllowCreditOrg of AllowCreditOrgs" [value]="AllowCreditOrg?._id">
+                    {{AllowCreditOrg?.name.en}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-9">
+                    <label class="containercheck">Tax Deduction Allow</label>
+                  </div>
+                  <div class="col-3">
+
+                    <nb-radio-group formControlName="isTaxAllow" name="isTaxAllow" (valueChange)="allowTax($event)">
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+                    </nb-radio-group>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4" *ngIf="allowTaxInterested"> 
+              <div class="form-group">
+                <label>Select Tax system *</label>
+                <select class="form-control" (change)="alloTaxChoice($event)">
+                  <!-- <option value="">--Select Tax System--</option>
+                  <option *ngFor="let tax of taxes" [value]="AllowCreditOrg?._id">{{tax?.name.en}}</option> -->
+                  <option value="">--select  choice--</option>
+                  <option value="1">Interested </option>
+                  <option value="0">Not Interested</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4"  *ngIf="isTax">
+              <div class="form-group">
+                <label>Select Tax system *</label>
+                <select class="form-control" formControlName="taxSystem">
+                  <option value="">--Select Tax System--</option>
+                  <option *ngFor="let tax of taxes" [value]="tax?._id">{{tax?.name.en}}</option>
+                </select>
+              </div>
+            </div>
+
+
+
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-3">
+                    <label class="containercheck">Works On Government Project *</label>
+                  </div>
+                  <div class="col-8">
+
+                    <nb-radio-group formControlName="governmentProject" name="governmentProject">
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+                    </nb-radio-group>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-3">
+                    <label class="containercheck">Want To See Unemployement List*</label>
+                  </div>
+                  <div class="col-8">
+                    <nb-radio-group formControlName="unemployementList" name="unemployementList">
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+                    </nb-radio-group>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-9">
+                    <label class="containercheck">Agreemants*</label>
+                  </div>
+                  <div class="col-3">
+                    <nb-radio-group name="agreement" formControlName="agreement"
+                      (valueChange)="agreementStatus($event)">
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+                    </nb-radio-group>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="form-group">
+                <select class="form-control" formControlName="agreementType"
+                  (change)="getAgreementval($event.target.value)" *ngIf="isAgreement">
+                  <option value="">--Select Agreement Type--</option>
+                  <option *ngFor="let agreementType of agreementTypes" [value]="agreementType?._id">
+                    {{agreementType?.name.en}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <select class="form-control" formControlName="collectiveAgreementName"
+                  (change)="getAgreementName($event)" *ngIf="isAgreementType">
+                  <option value="">--Select collective Agreement--</option>
+                  <option *ngFor="let agreement of agreements" [value]="agreement?._id">{{agreement?.name.en}}</option>
+                </select>
+                <!-- <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'collectiveAgreementName')">
+                        <p>This field is required</p>
+                      </ng-container> -->
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-9">
+                    <label class="containercheck">Insurance*</label>
+                  </div>
+                  <div class="col-3">
+
+                    <nb-radio-group formControlName="insurance" name="insurance"
+                      (valueChange)="insuranceStatus($event)">
+
+                      <nb-radio value="1">
+                        YES
+                      </nb-radio>
+
+                      <nb-radio value="0">
+                        NO
+                      </nb-radio>
+
+                    </nb-radio-group>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <select class="form-control" (change)="getInsuranceType($event)" formControlName="insuranceType"
+                  *ngIf="isInsurance">
+                  <option value="">--Select--</option>
+                  <option *ngFor="let item of insuranceType" [value]="item?._id">{{item.title.en}}</option>
+                </select>
+                <!-- <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'collectiveAgreementName')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <select class="form-control" (change)="getInsuranceName($event)" *ngIf="isInsuranceType">
+                  <option value="">--Select--</option>
+                  <!-- <option *ngFor="let res of parent_datas" [value]="res?._id">{{res?.title}}</option> -->
+                </select>
+                <!-- <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'collectiveAgreementName')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-3">
+                      <label class="containercheck">Do you Sale Material *</label>
+                    </div>
+                    <div class="col-8">
+                      <nb-radio-group formControlName="materialSale" name="materialSale">
+                        <nb-radio value="1">
+                          YES
+                        </nb-radio>
+                        <nb-radio value="0">
+                          NO
+                        </nb-radio>
+                      </nb-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+
+        <button nbButton nbStepperPrevious>prev</button>&nbsp;
+        <button nbButton nbStepperNext (click)="addCompanyStep2()" [disabled]="!AddCompanyStep2.valid"
+          [class.btn-pulse]="false">next</button>
+      </nb-step>
+      <nb-step label="Third step">
+        <form (ngSubmit)="addCompanyStep3()" aria-labelledby="title" [formGroup]="AddCompanyStep3">
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <input type="text" placeholder="Bank Account No" class="form-control"
+                  formControlName="bankAccountNumber">
+                <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep3,'bankAccountNumber')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <input type="text" placeholder="Bank Branch Code" class="form-control" formControlName="bankBranchCode">
+                <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep3,'bankBranchCode')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <input type="text" placeholder="Bank Branch name" class="form-control" formControlName="bankBranchName">
+                <ng-container *ngIf="formservice.isFieldValid(AddCompanyStep3,'bankBranchName')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </form>
+        <button nbButton nbStepperPrevious>prev</button>&nbsp;
+        <button nbButton nbStepperNext (click)="addCompanyStep3()" [disabled]="!AddCompanyStep3.valid"
+          [class.btn-pulse]="false">next</button>
+      </nb-step>
+      <nb-step [label]="labelFour">
+        <ng-template #labelFour>Fourth step</ng-template>
+        <form (ngSubmit)="addCompanyStep4()" aria-labelledby="title" [formGroup]="AddCompanyStep4">
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company Name:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="compName" formControlName="compName">
+            </div>
+            <div class="col-sm-1">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('compName')">&#xf044;</i>
+            </div>
+            <div class="col-sm-3">
+              <label for="upload">
+                <img class="img_logo" style="height:100px;width: 100px;" [src]="fileUrl">
+                <input type="file" id="upload" style="display:none" (change)="chooseLogo($event)">
+              </label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company Phone Number:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="compPhoneNumber" formControlName="compPhoneNumber">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('compPhoneNumber')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Organization Id:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="compOrgId" formControlName="compOrgId">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('compOrgId')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">F-Tax Number:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="ftaxNumber" formControlName="ftaxNumber">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('ftaxNumber')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company Website:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="compWebUrl" formControlName="compWebUrl">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('compWebUrl')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company Address:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="compAddress" formControlName="compAddress">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('compAddress')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Country:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="country">
+                <option value="">--Select Country--</option>
+                <option *ngFor="let country of countries" [value]="country._id">{{country.countryName.en}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('country')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">City:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="city">
+                <option value="">--Select City--</option>
+                <option *ngFor="let city of cities" [value]="city?._id">{{city?.cityName.en}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('city')">&#xf044;</i>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company History:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="comhistory" formControlName="comhistory">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('comhistory')">&#xf044;</i>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Owners:</label>
+            <div class="col-md-12 col-lg-6 col-xxxl-4">
+              <nb-select multiple placeholder="Select Owners" formControlName="owners">
+                <nb-option *ngFor="let owner of owners" [value]="owner?._id">{{owner.name}}</nb-option>
+              </nb-select>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('owners')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Establish Date:</label>
+            <div class="col-sm-7">
+              <input nbInput formControlName="establish" id="establish" [nbDatepicker]="formpicker1">
+              <nb-datepicker #formpicker1></nb-datepicker>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('establish')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Email Address:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('email')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Services:</label>
+
+            <div class="col-md-12 col-lg-6 col-xxxl-4">
+              <nb-select multiple placeholder="Select service" formControlName="service" id="service">
+                <nb-option *ngFor="let service of services" [value]="service?._id">{{service.name.en}}</nb-option>
+              </nb-select>
+            </div>
+
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('service')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Downpayment/ Credit Availability:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="inputEmail1" formControlName="allowCredit">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('allowCredit')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Tax Deduction Allow:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="isTaxAllow" formControlName="isTaxAllow">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa" (click)="editPreviewForm('isTaxAllow')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Works On Government Project:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="governmentProject" formControlName="governmentProject">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('governmentProject')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="collectiveAgreementName" class="col-sm-3 col-form-label">Agreements:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="collectiveAgreementName" (change)="getAgreementName($event)"
+                id="collectiveAgreementName">
+                <option value="">--Select collective Agreement--</option>
+                <option *ngFor="let agreement of agreements" [value]="agreement?._id">{{agreement?.name.en}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('collectiveAgreementName')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Insurance:</label>
+            <div class="col-sm-7">
+              <select class="form-control" (change)="getInsuranceType($event)" formControlName="insuranceType">
+                <option value="">--Select--</option>
+                <option *ngFor="let item of insuranceType" [value]="item?._id">{{item.title.en}}</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa">&#xf044;</i>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Bank Account Number:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="bankAccountNumber" formControlName="bankAccountNumber">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('bankAccountNumber')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Bank Branch Code:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="bankBranchCode" formControlName="bankBranchCode">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('bankBranchCode')">&#xf044;</i>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Bank Branch Name:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="bankBranchName" formControlName="bankBranchName">
+            </div>
+            <div class="col-sm-2">
+              <i style="font-size:20px;cursor: pointer;" class="fa"
+                (click)="editPreviewForm('bankBranchName')">&#xf044;</i>
+            </div>
+          </div>
+        </form>
+        <button nbButton nbStepperPrevious>prev</button>&nbsp;
+        <button nbButton (click)="addCompanyStep4()" nbStepperNext>SUBMIT</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,24 @@
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    z-index: 9999999;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .over:hover .overlay {
+    opacity: 1;
+  }
+  
+  .e-calendar .e-content td.e-selected span.e-day,
+  .e-bigger.e-small .e-calendar .e-content td.e-selected span.e-day {
+    background-color: #881190;
+    color: #fff;
+  }
+  

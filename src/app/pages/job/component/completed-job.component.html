@@ -1,0 +1,49 @@
+<nb-card>
+    <nb-card-header style="padding: 0px;">
+      <div style="margin-right: 0px;margin-left: 0px;" class="row">
+        <div style="padding:20px 0px 0px 15px;font-size:18px" class="col-8">
+          <i class="fas fa-table"></i>&nbsp;Completed jobs
+        </div>
+        <div style="padding:20px 0px 0px 30px;font-size:18px" class="col-2">
+          Jobs of Comapny
+        </div>
+        <div style="padding: 10px 20px 0px 0px; font-size:18px" class="col-2">
+          <div class="form-group">
+            <select class="form-control">
+              <option value="">All</option>
+              <option *ngFor="let company of companies">{{company.compName}}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </nb-card-header>
+    <div class="row">
+      <div style="padding: 20px 0px 0px 20px;font-size:18px" class="col-1">
+        Show
+      </div>
+      <div style="padding: 5px 10px 0px 0px; font-size:18px" class="col-2">
+        <select name="DataTables_Table_29_length" class="form-control input-sm">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <div style="padding: 20px 0px 0px 0px;font-size:18px" class="col-1">
+        entries
+      </div>
+      <div style="padding: 10px 0px 10px 445px;" class="col-8">
+        <div class="input-group">
+          <input type="text" placeholder="Search for...">
+          <span class="input-group-append">
+            <button class="btn btn-success input-group-text">
+              Search
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <ng2-smart-table  [settings]="settings"  (create)="opencompletedjobModal()">
+    </ng2-smart-table>
+  </nb-card>

@@ -1,0 +1,27 @@
+<nb-card>
+    <nb-card-header style="height: 80px;">
+  <div class="row">
+    <div style="text-align:-webkit-left;padding: 10px 0px 0px 15px;font-size: 18px;" class="col-8">
+      Worker List
+      </div>
+    <div class="col-4">
+        <div class="form-group">
+            <select class="form-control" (change)="getWorkerList($event.target.value)">
+              <option [value]="0">--Select Company--</option>
+              <option [value]="company._id" *ngFor="let company of companyList" >{{company.compName}}
+              </option>
+            </select>
+          </div>
+    </div>
+  </div>
+</nb-card-header>
+
+  <nb-card-body>
+    <!-- <ng2-smart-table  [settings]="settings" [source]="source" (create)="openAddWorkerModal()" (edit)="editModel($event)"
+    (delete)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)"> -->
+
+    <ng2-smart-table  [settings]="settings" [source]="source" (edit)="editModel($event)"
+    (delete)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

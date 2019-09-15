@@ -1,0 +1,60 @@
+<nb-card>
+  <!--<nb-card-header>
+    <p class="chart-description">Here's a complete example build in a bot-like app. Type <code>help</code> to be able to receive different message types.
+      Enjoy the conversation and the beautiful UI.</p>
+  </nb-card-header> -->
+  <nb-card-body>
+    <div class="row">
+      <div class="col-4">
+        <nb-alert style="margin-bottom: 5px;border-radius: 0px;font-size: 18px;
+        font-style: italic;" status="success">
+          Company List
+        </nb-alert>
+
+        <div style="margin-bottom: 5px;width: 98%;margin: 0 auto" class="input-group">
+          <span style="padding: 10px;border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;" class="input-group-addon success"><i class="fas fa-search"></i></span>
+          <input type="text" style="border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;" class="form-control" placeholder="Filter" />
+        </div>
+
+        <nb-card style="width: 98%;margin: 0 auto" size="medium">
+          <nb-list>
+            <nb-list-item *ngFor="let user of users">
+              <nb-user picture="../../../../assets/images/eva.png" [name]="user.name">
+              </nb-user>
+            </nb-list-item>
+          </nb-list>
+        </nb-card>
+
+      </div>
+
+      <div class="col-8">
+        <nb-chat style="border-top-left-radius: 0;
+        border-top-right-radius: 0;" title="Nebular Conversational UI" size="large" status="success">
+          <nb-chat-message *ngFor="let msg of messages" [type]="msg.type" [message]="msg.text" [reply]="msg.reply"
+            [sender]="msg.user.name" [date]="msg.date" [files]="msg.files" [quote]="msg.quote" [latitude]="msg.latitude"
+            [longitude]="msg.longitude" [avatar]="msg.user.avatar">
+          </nb-chat-message>
+          <nb-chat-form (send)="sendMessage($event)" [dropFiles]="true">
+          </nb-chat-form>
+        </nb-chat>
+      </div>
+      <!-- <div class="chat-container col-md-12 col-lg-6 col-xxxl-6">
+        <div style="margin-left: 20px;font-size: 18px;color: #1b49a0">
+          <p>Main features:</p>
+          <ul>
+            <li style="padding-top: 10px;color: #1b49a0">different message types support (text, image, file, file group, map, etc)</li>
+            <li style="padding-top: 10px;color: #1b49a0">drag &amp; drop for images and files with preview</li>
+            <li style="padding-top: 10px;color: #1b49a0">different UI styles</li>
+            <li style="padding-top: 10px;color: #1b49a0">custom action buttons (coming soon)</li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+  </nb-card-body>
+</nb-card>

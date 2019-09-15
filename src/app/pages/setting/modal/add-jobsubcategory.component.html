@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="addJobSubCategory()" aria-labelledby="title" [formGroup]="addSubcategory">
+      <nb-card>
+        <nb-card-header>Add Job Sub Category</nb-card-header>
+        <nb-card-body>
+          <div class="form-group">
+            <select class="form-control" formControlName="parentCategoryId">
+              <option value="">--Select--</option>
+              <option *ngFor="let res of subCategory_datas" [value]="res?._id">{{res?.en}}</option>
+            </select>
+            <ng-container *ngIf="formservice.isFieldValid(addSubcategory,'parentCategoryId')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="Sub Category Name(en)" class="form-control" formControlName="en">
+
+            <ng-container *ngIf="formservice.isFieldValid(addSubcategory,'en')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Sub Category Name(su)" class="form-control" formControlName="su">
+
+            <ng-container *ngIf="formservice.isFieldValid(addSubcategory,'su')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <!-- <input type="text" placeholder="City Name(su)" class="form-control" formControlName="su"> -->
+            <textarea placeholder="Sub category Description" class="form-control" formControlName="description"></textarea>
+            <ng-container *ngIf="formservice.isFieldValid(addSubcategory,'su')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          
+        </nb-card-body>
+        <nb-card-body>
+          <button nbButton fullWidth status="success" [disabled]="!addSubcategory.valid" [class.btn-pulse]="false"> Save
+          </button>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<nb-card>
+  <nb-card-header>Assign Job</nb-card-header>
+  <nb-card-body>
+
+    <div class="row pl-3 pb-3">
+        <div class="col-md-8">
+        <a routerLink="/pages/worker/addWokerCompany" routerLinkActive="active" nbButton hero status="primary" size="small">
+            <i class="fa fa-plus" aria-hidden="true"></i> New Worker
+        </a>
+          &nbsp; &nbsp;
+
+          <button type="button" nbButton hero status="success" size="small" (click)="assignJobToWorkers()">
+            <i class="fa fa-plus" aria-hidden="true"></i> Import Workers
+          </button>
+          
+        </div>
+
+    <div class="col-md-4">
+      <!-- <div class="form-group">
+          <select class="form-control" (change)="getWorkerList($event.target.value)">
+            <option [value]="0">--Select Company--</option>
+            <option [value]="company._id" *ngFor="let company of companyList" >{{company.compName}}
+            </option>
+          </select>
+        </div> -->
+  </div>
+
+</div>
+
+    <ng2-smart-table [settings]="settings" [source]="source" (delete)="removeFromAssignJobList($event.data)"
+    ></ng2-smart-table>
+
+    
+  </nb-card-body>
+  <nb-card-footer></nb-card-footer>
+</nb-card>

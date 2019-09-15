@@ -1,0 +1,47 @@
+mkdir company
+cd company
+ng g module name --flat
+mkdir component
+ng g c name --flat
+
+
+
+
+UvwVk3FdXp57xWJ
+
+
+XYZ00
+
+
+if in angular -> ng serve -> on save is not build autometically than use the following code in ubuntu:
+
+sudo sysctl fs.inotify.max_user_watches=32768
+
+
+
+{
+        title: 'Delete',
+        type: 'html',
+        valuePrepareFunction: (cell, row) => {
+          return `<i class="nb-trash"></i>`
+        },
+        filter: false
+
+      }
+
+
+actions: {
+      add: false,
+      edit: false,
+      delete: false,
+      custom: [
+        { 
+          name: 'edit',
+         title: '<i class="nb-edit"></i>'
+        },
+        { 
+          name: 'delete',
+         title: '<i class="nb-trash"></i>'
+        }
+      ],
+      position: 'right'

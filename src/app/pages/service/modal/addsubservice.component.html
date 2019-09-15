@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="addsubService()" aria-labelledby="title" [formGroup]="AddSubService">
+      <nb-card>
+        <nb-card-header>Add Sub Service</nb-card-header>
+        <nb-card-body>
+          <div class="form-group">
+            <select class="form-control" formControlName="serviceId">
+              <option value="">--Select--</option>
+              <option *ngFor="let res of services" [value]="res?._id">{{res?.en}}</option>
+            </select>
+
+            <ng-container *ngIf="formservice.isFieldValid(AddSubService,'serviceId')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <input type="file" placeholder="Add Icon" class="form-control" formControlName="icon">
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="Sub Service Name(en)" class="form-control" formControlName="en">
+
+            <ng-container *ngIf="formservice.isFieldValid(AddSubService,'en')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Sub Service Name(su)" class="form-control" formControlName="su">
+            <ng-container *ngIf="formservice.isFieldValid(AddSubService,'su')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+
+        </nb-card-body>
+        <nb-card-body>
+          <button nbButton fullWidth status="success" [disabled]="!AddSubService.valid" [class.btn-pulse]="false"> Save
+          </button>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

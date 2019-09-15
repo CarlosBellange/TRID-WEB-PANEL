@@ -1,0 +1,11 @@
+
+<nb-card>
+  <nb-card-header>
+    Company List
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table  [settings]="settings" [source]="source" (create)="openAddCompanyModal()" (edit)=edit($event) (delete)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

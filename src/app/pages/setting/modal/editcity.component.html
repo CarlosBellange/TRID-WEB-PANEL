@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="editCity()" aria-labelledby="title" [formGroup]="EditCity">
+      <nb-card>
+        <nb-card-header>Edit City</nb-card-header>
+        <nb-card-body>
+          <div class="form-group">
+            <select class="form-control" formControlName="country_id">
+              <option value="">--Select--</option>
+              <option *ngFor="let res of country_datas" [value]="res?._id">{{res?.en}}</option>
+            </select>
+            <!-- <ng-container *ngIf="formservice.isFieldValid(EditCity,'country_id')">
+              <p>This field is required</p>
+            </ng-container> -->
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="City Name(en)" class="form-control" formControlName="en">
+
+            <!-- <ng-container *ngIf="formservice.isFieldValid(EditCity,'en')">
+              <p>This field is required</p>
+            </ng-container> -->
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="City Name(su)" class="form-control" formControlName="su">
+
+            <!-- <ng-container *ngIf="formservice.isFieldValid(EditCity,'su')">
+              <p>This field is required</p>
+            </ng-container> -->
+          </div>
+          
+        </nb-card-body>
+        <nb-card-body>
+          <button nbButton fullWidth status="success" [disabled]="!EditCity.valid" [class.btn-pulse]="false"> Save
+          </button>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

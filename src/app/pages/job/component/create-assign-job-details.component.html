@@ -1,0 +1,177 @@
+<div class="row">
+  <div class="col-8">
+    <nb-card>
+      <nb-card-header>
+        <i class="fa fa-user"></i>&nbsp;Create A Job
+      </nb-card-header>
+      <button nbButton (click)="openNewCustomer()">New Customer</button>
+
+      <nb-accordion>
+        <nb-accordion-item #newCustomer>
+           <nb-accordion-item-body>
+            <form (ngSubmit)="AddNewCustomer()" aria-labelledby="title" [formGroup]="addNewCustomer">
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Customer Type *</label>
+                    <!-- <select class="form-control" formControlName="employeeType">
+                      <option value="">--Select Customer Type--</option>
+                      <option *ngFor="let Employeetype of EmployeeType" [value]="Employeetype._id">{{Employeetype.title.en}}
+                      </option>
+                    </select> -->
+                    <select name="DataTables_Table_29_length" class="form-control" formControlName="CustomerType">
+                      <option value="">--Select Customer Type--</option>
+                      <option value="private">Private</option>
+                      <option value="pompany">Company</option>
+                    </select>
+                    <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'CustomerType')">
+                      <p>This field is required</p>
+                    </ng-container> -->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Email ID</label>
+                    <input type="text" placeholder="Email" class="form-control" formControlName="email"
+                    pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})">
+                    <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'email')">
+                      <p>This field is required</p>
+                    </ng-container> -->
+                  </div>
+                </div>
+              </div> 
+              <div class="row">
+                  <div class="col-6">
+                      <div class="form-group">
+                        <label>Customer Name</label>
+                        <input type="text" placeholder="name" class="form-control"
+                          formControlName="name">
+                        <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'name')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="number" placeholder="Phone Number" class="form-control"
+                          formControlName="PhoneNumber">
+                        <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'PhoneNumber')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="form-group">
+                        <label>Address</label>
+                        <textarea placeholder="Address" class="form-control" formControlName="address"></textarea>
+                        <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'address')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="form-group">
+                    <label>Job Category *</label>
+                    <!-- <select class="form-control" formControlName="serviceType">
+                      <option value="">--Select Job Category--</option>
+                      <option *ngFor="let service of services" [value]="service._id">{{service.name.en}}
+                      </option>
+                    </select> -->
+                    <select name="DataTables_Table_29_length" class="form-control" formControlName="serviceType">
+                        <option value="">--Select Service Type--</option>
+                        <option value="private">Private</option>
+                        <option value="pompany">Company</option>
+                      </select>
+                    <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'serviceType')">
+                      <p>This field is required</p>
+                    </ng-container> -->
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="form-group">
+                    <label>SubCategory *</label>
+                    <!-- <select class="form-control" formControlName="subServiceType">
+                      <option value="">--Select job SubCategory--</option>
+                      <option *ngFor="let subservice of subservices" [value]="subservice._id">{{subservice.title.en}}
+                      </option>
+                    </select> -->
+                    <select name="DataTables_Table_29_length" class="form-control" formControlName="subserviceType">
+                        <option value="">--Select subservice Type--</option>
+                        <option value="private">Private</option>
+                        <option value="pompany">Company</option>
+                      </select>
+                    <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'subserviceType')">
+                      <p>This field is required</p>
+                    </ng-container> -->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="form-group">
+                        <label>Job Description</label>
+                        <textarea placeholder="Job Description" class="form-control" formControlName="JobDescription"></textarea>
+                        <!-- <ng-container *ngIf="formservice.isFieldValid(addNewCustomer,'JobDescription')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+                      </div>
+                  </div>
+              </div>
+             
+              <div class="row">
+                  <label>Tax Deduction:</label>
+                <div class="col-3">
+                    <nb-checkbox>ROT</nb-checkbox>
+                </div>
+
+                <div class="col-3">
+                    <nb-checkbox>RUT</nb-checkbox>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="4">
+                  <input style="border-radius: 0rem;" nbInput placeholder="Date From" [nbDatepicker]="formpicker">
+                  <nb-datepicker #formpicker></nb-datepicker>
+                </div>  
+                <div class="4">
+                    <input atp-time-picker [(ngModel)]="time" (click)="openTime()" formControlName="Time" />
+                </div>
+              </div>
+             </form>
+             <button nbButton nbStepperPrevious>Cancel</button>&nbsp;
+             <button nbButton nbStepperNext 
+             
+              (click)="AddNewCustomer()"
+               [class.btn-pulse]="false">Post Now</button>
+          </nb-accordion-item-body>
+        </nb-accordion-item>
+
+</nb-accordion>
+
+    </nb-card>
+  </div>
+  <div class="4">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- [disabled]="!addNewCustomer.valid" -->

@@ -1,0 +1,593 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+  <nb-card-header>ADD WORKER</nb-card-header>
+  <nb-card-body>
+    <nb-stepper orientation="horizontal">
+      <nb-step [label]="labelOne">
+        <ng-template #labelOne>First step</ng-template>
+
+        <div class="row">
+          <div class="col-md-12">
+            <form (ngSubmit)="AddWorkerStep1()" aria-labelledby="title" [formGroup]="addWorkerStep1">
+              <nb-card>
+                <nb-card-body>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <!-- For Page Company Name Button -->
+                        <!-- <ng-template #content let-c="close" let-d="dismiss">
+                          <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Select Company</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <nb-radio-group formControlName="company" name="selecteCompanyOption">
+                              <nb-radio *ngFor="let company of companies" value="company._id" [value]="company._id" (click)="companyDataClick(company)">{{company.compName}}</nb-radio>
+                            </nb-radio-group>
+                          </div>
+                          <div class="modal-footer">
+                            <button nbButton id="company-modal-btn" style="display: none;" type="button" class="btn btn-outline-dark" (click)="c('Save click')">Done</button>
+                          </div>
+                        </ng-template> -->
+                        <!-- <label>select company *</label>
+                        <select class="form-control" formControlName="company" [(ngModel)]="selecteCompanyOption">
+                          <option value="">--Select Company--</option>
+                          <option *ngFor="let company of companies" [value]="company._id">{{company.compName}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'company')">
+                          <p>This field is required</p>
+                        </ng-container> -->
+
+                        <div class="form-group">
+                          <label>company *</label>
+                          <select class="form-control" formControlName="company" disabled="true">
+                            <option value="">--Select Company--</option>
+                            <option *ngFor="let company of companies" [value]="company._id">{{company.compName}}
+                            </option>
+                          </select>
+                          <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'company')">
+                            <p>This field is required</p>
+                          </ng-container>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <input type="text" placeholder="Name" class="form-control" formControlName="workerName">
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workerName')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+
+                        <label for="upload">
+                          <img class="img_logo" style="height:100px;width: 100px;" [src]="fileUrl">
+                          <input type="file" id="upload" style="display:none" (change)="chooseLogo($event)">
+                        </label>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workerLogo')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                      <div class="col-4">
+                          <div class="form-group">
+                            <input type="number" placeholder="Phone Number" class="form-control"
+                              formControlName="workerPhoneNumber">
+                            <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workerPhoneNumber')">
+                              <p>This field is required</p>
+                            </ng-container>
+                          </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="form-group">
+                              <input type="text" placeholder="Email / User Name" class="form-control" formControlName="workermail"
+                                pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})">
+                              <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workermail')">
+                                <p>This field is required</p>
+                              </ng-container>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                          <div class="form-group">
+                            <input type="password" placeholder="Password" class="form-control"
+                              formControlName="workerPassword">
+                            <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workerPassword')">
+                              <p>This field is required</p>
+                            </ng-container>
+                          </div>
+                        </div>
+    
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select country *</label>
+                        <select class="form-control" formControlName="country">
+                          <option value="">--Select Country--</option>
+                          <option *ngFor="let country of countries" [value]="country._id">{{country.countryName.en}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'country')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label>select city *</label>
+                        <select class="form-control" formControlName="city">
+                          <option value="">--Select City--</option>
+                          <option *ngFor="let city of cities" [value]="city?._id">{{city?.cityName.en}}</option> -->
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'city')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-6">
+                      <!-- <div class="form-group">
+                        <label>select company *</label>
+                        <select class="form-control" formControlName="company" disabled="true">
+                          <option value="">--Select Company--</option>
+                          <option *ngFor="let company of companies" [value]="company._id">{{company.compName}}
+                          </option>
+                        </select>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'company')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div> -->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <textarea placeholder="Address" class="form-control" formControlName="workerAddress"></textarea>
+                        <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'workerAddress')">
+                          <p>This field is required</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <nb-card>
+                        <nb-card-header>Google Maps with search</nb-card-header>
+                        <nb-card-body>
+                          <ngx-search (positionChanged)="updateLocation($event)"></ngx-search>
+                          <ngx-map [searchedLocation]="searchedLocation"></ngx-map>
+                        </nb-card-body>
+                      </nb-card>
+                    </div>
+
+                  </div>
+                </nb-card-body>
+              </nb-card>
+            </form>
+          </div>
+        </div>
+        <button nbButton disabled nbStepperNext>prev</button> &nbsp;
+        <button nbButton nbStepperNext [disabled]="!addWorkerStep1.valid" (click)="AddWorkerStep1()"
+          [class.btn-pulse]="false">next</button>
+      </nb-step>
+
+      <nb-step [label]="labelTwo">
+        <ng-template #labelTwo>Second step</ng-template>
+        <form (ngSubmit)="AddWorkerStep2()" aria-labelledby="title" [formGroup]="addWorkerStep2">
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <label>Employee Type *</label>
+                <select class="form-control" formControlName="employeeType" (change)="getemployee($event.target.value)">
+                  <option value="">--Select Employee Type--</option>
+                  <option *ngFor="let Employeetype of EmployeeType" [value]="Employeetype._id">{{Employeetype.title.en}}
+                  </option>
+                </select>
+                <ng-container *ngIf="formservice.isFieldValid(addWorkerStep2,'employeeType')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4" *ngIf="isTempEmployee">
+              <div class="form-group">
+                <label>Temporery Types </label>
+                <select class="form-control" formControlName="tempEmployee">
+                  <option *ngFor="let tempEmployee of tempEmployees" [value]="tempEmployee._id">
+                    {{tempEmployee.title.en}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4" *ngIf="!isTempEmployee">
+              <div class="form-group">
+                <label>Monthly Salary </label>
+                <input type="text" class="form-control" formControlName="monthlySalary">
+              </div>
+            </div>
+            <div class="col-4" *ngIf="isTempEmployee">
+              <div class="form-group">
+                <label>Hourly Rate </label>
+                <input type="text" class="form-control" formControlName="hourlyRate">
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <label>Experience</label>
+                <input type="text" placeholder="Experience" class="form-control" formControlName="experience">
+                <ng-container *ngIf="formservice.isFieldValid(addWorkerStep2,'experience')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label>Service Category *</label>
+                <select class="form-control" formControlName="serviceType">
+                  <option value="">--Select Service Category--</option>
+                  <option *ngFor="let service of services" [value]="service._id">{{service.name.en}}
+                  </option>
+                </select>
+                <ng-container *ngIf="formservice.isFieldValid(addWorkerStep2,'serviceType')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label>Service SubCategory *</label>
+                <nb-select multiple placeholder="Multiple Select" formControlName="subServiceType">
+                  <nb-option *ngFor="let subservice of subservices" [value]="subservice._id">{{subservice.title.en}}
+                  </nb-option>
+
+                </nb-select>
+                <ng-container *ngIf="formservice.isFieldValid(addWorkerStep2,'subServiceType')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <label>Previous Companies</label>
+                <input type="text" placeholder="Previous Companies" class="form-control"
+                  formControlName="PreviousCompanies">
+                <ng-container *ngIf="formservice.isFieldValid(addWorkerStep2,'PreviousCompanies')">
+                  <p>This field is required</p>
+                </ng-container>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label>Languages *</label>
+                <select name="DataTables_Table_29_length" class="form-control" formControlName="Language">
+                  <option value="">--Select Languages--</option>
+                  <option value="english">English</option>
+                  <option value="swedish">Swedish</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label>Gender *</label>
+
+                <select class="form-control" formControlName="Gender">
+                  <option value="">--Select Gender--</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <div class="form-group">
+
+                <input type="file" id="file"(change)="Upload($event)" accept="application/pdf">
+                <!-- <button nbButton size="large"  nbStepperPrevious>Upload Contract</button> -->
+
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group">
+                <!-- <button nbButton (click)="View()" size="large" nbStepperNext>View Contract</button> -->
+                <!-- <ng-container *ngIf="formservice.isFieldValid(addWorkerStep1,'city')">
+                        <p>This field is required</p>
+                      </ng-container> -->
+              </div>
+            </div>
+          </div>
+          
+          <!-- <ngx-regular-schedule></ngx-regular-schedule> -->
+
+          <nb-accordion multi *ngIf="isTempEmployee == false">
+              <h2>Permanent Schedule</h2>
+            <nb-alert status="success"> Regular Schedule</nb-alert>
+            <nb-accordion-item *ngFor="let months of fullYear; index as i" #item >
+              <nb-accordion-item-header>{{months[0].month}}</nb-accordion-item-header>
+              <nb-accordion-item-body>
+                
+                    <nb-tabset>
+                      <nb-tab *ngFor="let item of  months.slice(0,10); index as pos"
+                        tabTitle="{{shortNameOfDayObj[item.day]}} {{item.date}}" [disabled]="pos != 0">
+
+                      </nb-tab>
+                    </nb-tabset>
+                        <nb-accordion>
+                          <nb-accordion-item>
+                            <nb-accordion-item-header>
+                              Regular Schedule 
+                            </nb-accordion-item-header>
+                            <nb-accordion-item-body >
+
+                              <!-- Regular Schedule Data -->
+                              <!-- <ejs-calendar [isMultiSelection]='multiSelect' [min]="months[0].firstDate" [max]="months[0].lastDate"></ejs-calendar> -->
+                              <ngx-regular-schedule [data]="months[0]" (regularScheduleData)="getRegularScheduleData($event,months[0].month)" ></ngx-regular-schedule>
+
+                              <!-- <input type="hidden" formControlName="sele"> -->
+                              <!-- <ngx-regular-schedule ></ngx-regular-schedule> -->
+                              
+                            </nb-accordion-item-body>
+                          </nb-accordion-item>
+
+                          <nb-accordion-item>
+                            <nb-accordion-item-header>
+                              Overtime Schedule
+                            </nb-accordion-item-header>
+                            <nb-accordion-item-body>
+                              <input type="hidden" formControlName="OvertimeRate" [(ngModel)]="overTimeData">
+                              <ngx-overtime-schedule [viewButton]="show"
+                              (overtimeWiseData)="getSingleOvertimeWiseData($event, months[0].month)"></ngx-overtime-schedule>
+                            </nb-accordion-item-body>
+                          </nb-accordion-item>
+                        </nb-accordion>
+        
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+
+          <nb-accordion *ngIf="isTempEmployee">
+              <nb-accordion-item>
+               <nb-accordion-item-header>Temporary Schedule</nb-accordion-item-header>
+               <nb-accordion-item-body>
+                  <ngx-temporary-schedule (temporaryScheduleData)=getTemporaryScheduleData($event)></ngx-temporary-schedule>
+               </nb-accordion-item-body>
+              </nb-accordion-item>
+             </nb-accordion>
+
+          <!-- <nb-alert status="success"> Overtime Schedule</nb-alert> -->
+          <!-- <nb-accordion>
+            <nb-accordion-item #itemOverTime>
+              <nb-accordion-item-body>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          <nb-checkbox ></nb-checkbox>
+                        </th>
+                        <th> Date </th>
+                        <th colspan="8"> Day </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of calendar">
+                        <th>
+                          <nb-checkbox #itemcheck [value]="item.checkBox"></nb-checkbox>
+                        </th>
+                        <td>{{item.date}}</td>
+                        <td>{{item.day}}</td>
+
+                        <table class="table table-bordered table-striped">
+                          <thead>
+                            <th>Slots</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th> Over Time %</th>
+                            <th>Work Hr</th>
+                            <th> Price</th>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th>First Slot</th>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput></td>
+                              <td class="text-nowrap" scope="row">10</td>
+                              <td class="text-nowrap" scope="row">10</td>
+                            </tr>
+                            <tr>
+                              <th>Second Slot</th>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput></td>
+                              <td class="text-nowrap" scope="row">10</td>
+                              <td class="text-nowrap" scope="row">10</td>
+                            </tr>
+                            <tr>
+                              <th>Third Slot</th>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput></td>
+                              <td class="text-nowrap" scope="row">10</td>
+                              <td class="text-nowrap" scope="row">10</td>
+                            </tr>
+                            <tr>
+                              <th>Fourth Slot</th>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput [(ngModel)]="sTime" (click)="opensTime()"
+                                  formControlName="startTime" /></td>
+                              <td><input class="inputLenth" nbInput></td>
+                              <td class="text-nowrap" scope="row">10</td>
+                              <td class="text-nowrap" scope="row">10</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion> -->
+
+        </form>
+
+        <div class="row mt-3">
+        <button nbButton nbStepperPrevious>prev</button>&nbsp;
+        <button nbButton nbStepperNext  (click)="AddWorkerStep2()"
+          >next</button>
+        </div>
+      </nb-step>
+
+      <nb-step [label]="labelthree">
+        <ng-template #labelthree>Third step</ng-template>
+        <form (ngSubmit)="AddWorkerStep3()" aria-labelledby="title" [formGroup]="addWorkerStep3">
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Worker Name:</label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="workerName" formControlName="workerName" readonly>
+            </div>
+            <div class="col-sm-3">
+              <label for="upload">
+                <img class="img_logo" style="height:100px;width: 100px;" [src]="fileUrl">
+                <input type="file" id="upload" style="display:none" (change)="chooseLogo($event)" disabled="true">
+              </label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Worker Phone Number:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="workerPhoneNumber" formControlName="workerPhoneNumber" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Worker Address:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="workerAddress" formControlName="workerAddress" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Country:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="country" disabled="true">
+                <option value="">--Select Country--</option>
+                <option *ngFor="let country of countries" [value]="country._id">{{country.countryName.en}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">City:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="city" disabled="true">
+                <option value="">--Select City--</option>
+                <option *ngFor="let city of cities" [value]="city?._id">{{city?.cityName.en}}</option>
+              </select>
+              <!-- ￼PREV -->
+            </div>
+            <!-- ￼PREV -->
+          </div>
+          <!-- ￼PREV -->
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Company:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="company" disabled="true">
+                <option value="">--Select Company--</option>
+                <option *ngFor="let company of companies" [value]="company?._id">{{company?.compName}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Email Address:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="workermail" formControlName="workermail" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Employee Type:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="employeeType" disabled="true">
+                <option value="">--Select Employee Type--</option>
+                <option *ngFor="let Employeetype of EmployeeType" [value]="Employeetype._id">{{Employeetype.title.en}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Service Category:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="serviceType" (change)="getWorkerList($event.target.value)" disabled="true">
+                <option value="">--Select Service Category--</option >
+                <option *ngFor="let service of services" [value]="service._id">{{service.name.en}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Service SubCategory:</label>
+            <div class="col-sm-7">
+              <select class="form-control" formControlName="subServiceType" disabled="true">
+                <option value="">--Select Service SubCategory--</option>
+                <option *ngFor="let subservice of subservices" [value]="subservice._id">{{subservice.title.en}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Experience:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="experience" formControlName="experience" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Previous Companies:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="PreviousCompanies" formControlName="PreviousCompanies" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Language:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="Language" formControlName="Language" readonly>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Gender:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="Gender" formControlName="Gender" readonly>
+            </div>
+          </div>
+        </form>
+        <button nbButton nbStepperPrevious>prev</button>&nbsp;
+        <button nbButton [disabled]="!addWorkerStep3.valid" (click)="addworker()" nbStepperNext>SUBMIT</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<!-- <button id="modal-btn" class="btn btn-lg btn-outline-primary" style="display: none;" (click)="open(content)">Launch demo modal</button> -->

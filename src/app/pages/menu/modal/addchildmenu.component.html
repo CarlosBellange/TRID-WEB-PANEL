@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <form (ngSubmit)="addChileMenu()" aria-labelledby="title" [formGroup]="AddChildMenu">
+      <nb-card>
+        <nb-card-header>Parent Menu</nb-card-header>
+        <nb-card-body>
+          <div class="form-group">
+            <select class="form-control" formControlName="parentId" (change)="getval($event)">
+              <option value="">--Select--</option>
+              <option *ngFor="let res of parent_datas" [value]="res?._id">{{res?.title}}</option>
+            </select>
+            <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'parentId')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="Name" class="form-control" formControlName="title">
+
+            <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'title')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Link" class="form-control" formControlName="link">
+
+            <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'link')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Icon" class="form-control" formControlName="icon">
+            <ng-container *ngIf="formservice.isFieldValid(AddChildMenu,'icon')">
+              <p>This field is required</p>
+            </ng-container>
+          </div>
+        </nb-card-body>
+        <nb-card-body>
+          <!-- <button class="btn btn-success" (click)="showLargeModal()">Large modal</button> -->
+          <button nbButton fullWidth status="success" [disabled]="!AddChildMenu.valid" [class.btn-pulse]="false"> Save
+          </button>
+        </nb-card-body>
+      </nb-card>
+    </form>
+  </div>
+</div>

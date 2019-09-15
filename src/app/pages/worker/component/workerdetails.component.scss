@@ -1,0 +1,92 @@
+.images {
+    max-width: 130px;
+    border: 2px solid #fff;
+}
+
+.color1 {
+    // background: rgba(0, 0, 0, .43);
+    // color: black;
+    margin-bottom: 5px;
+    border-radius:0px;
+}
+.alert {
+    // background-color:#DC143C;
+    color: white;
+}
+
+.card {
+    background-color:#28e070;
+    color: white;
+}
+.color2 {
+    // background-color: rgba(60, 106, 119, 0.4); 
+    // color: black;
+    margin-bottom: 5px;
+    border-radius:0px;
+}
+
+.color-card {
+    font-size: 13px;
+    // background-color: rgba(60, 106, 119, 0.4); 
+}
+.button {
+    margin-left: 76%;
+}
+.button1 {
+    margin-left: 50%;
+}
+
+.col-8 {
+    font-size: 18px;
+    padding: 25px 25px 25px 25px;
+}
+.col-10 {
+    font-size: 18px;
+}
+.col-2 {
+    font-size: 18px;
+}
+.col-6 {
+    font-size: 18px; 
+    padding: 25px 25px 25px 25px; 
+}
+
+.icon {
+    display: block;
+    width: 30px;
+    height: 32px;
+    position: relative;
+    float: left;
+    font-size: 111%;
+    line-height: 32px;
+    text-align: center;
+    margin-right: -10px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    z-index: 9999999;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .over:hover .overlay {
+    opacity: 1;
+  }
+  
+  .e-calendar .e-content td.e-selected span.e-day,
+  .e-bigger.e-small .e-calendar .e-content td.e-selected span.e-day {
+    background-color: #881190;
+    color: #fff;
+  }
+
+  .overtimeButton{
+      visibility: hidden;
+  }

@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-header>Import Job</nb-card-header>
+    <nb-card-body>
+  
+      <div class="row pl-3 pb-3">
+          <div class="col-md-8">
+          <!-- <a routerLink="/pages/job/Create-assign-job" routerLinkActive="active" nbButton hero status="primary" size="small">
+              <i class="fa fa-plus" aria-hidden="true"></i> New Job
+          </a>
+            &nbsp; &nbsp;
+            <a routerLink="/pages/job/import-worker" routerLinkActive="active" nbButton hero status="success" size="small">
+              <i class="fa fa-plus" aria-hidden="true"></i> Import Jobs
+            </a> -->
+          </div>
+  
+      <div class="col-md-4">
+        <div class="form-group" *ngIf="companyView">
+            <select class="form-control" (change)="getWorkerList($event.target.value)">
+              <option [value]="0">--Select Company--</option>
+              <option [value]="company._id" *ngFor="let company of companyList" >{{company.compName}}
+              </option>
+            </select>
+          </div>
+    </div>
+  
+  </div>
+  
+      <ng2-smart-table [settings]="settings" [source]="source" (userRowSelect)="onUserRowSelect($event)"
+      ></ng2-smart-table>
+
+      <div *ngIf="assignWorkerView" class="mt-3">
+      <button type="button" nbButton hero status="success" 
+       size="small" (click)="assignWorkers()">
+          Assign Workers
+      </button>
+    </div>
+    </nb-card-body>
+    <nb-card-footer></nb-card-footer>
+  </nb-card>

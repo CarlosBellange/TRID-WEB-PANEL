@@ -1,0 +1,100 @@
+// @import '~bootstrap/scss/mixins/breakpoints';
+// @import '~@nebular/theme/styles/global/breakpoints';
+
+// @import '../../../@theme/styles/themes';
+
+// @include nb-install-component() {
+//   /deep/ nb-layout-column {
+//     justify-content: center;
+//     display: flex;
+//   }
+
+//   nb-chat {
+//     margin: 3rem auto 0;
+//     width: 500px;
+
+//   }
+
+//   .chat-container {
+//     margin-bottom: 2rem;
+//     font-size: nb-theme(font-size-xlg);
+
+//     li {
+//       padding-top: 1rem;
+//     }
+//   }
+
+  .chart-description {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    width: 52%;
+    color: #1b49a0;
+  }
+  quote {
+    font-style: italic;
+    font-size: 0.875rem;
+    background: #494299;
+    color: #a1a1e5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+ 
+
+  chart-features {
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  chart-features ul li {
+    padding-top: 1rem;
+  }
+
+  nb-card-body {
+    padding: 50px;
+  }
+
+  .text ng-star-inserted {
+    background: #494299;
+  }
+
+  // ::ng-deep nb-layout-column {
+  //   justify-content: center;
+  //   display: flex;
+  // }
+  // nb-chat {
+  //   width: 500px;
+  // }
+
+//   .chart-features {
+//     margin-top: 2.75rem;
+//   }
+
+//   @include media-breakpoint-down(xxl) {
+//     nb-chat {
+//       width: 400px;
+//     }
+//   }
+
+//   @include media-breakpoint-down(md) {
+//     nb-chat {
+//       width: 400px;
+//     }
+
+//     .chart-description {
+//       width: 90%;
+//     }
+//   }
+
+//   @include media-breakpoint-down(is) {
+//     nb-chat {
+//       width: 300px;
+//     }
+//   }
+// }
+
+.input-group {
+  margin-bottom: 5px;
+}
+

@@ -1,0 +1,72 @@
+  <div class="overlay"></div>
+  <div class="table-responsive">
+    <div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th> Overtime Days </th>
+            <th> Overtime Rate(%) </th>
+            <!-- <th> Start Time </th>
+          <th> End Time </th> -->
+            <th> Working/hr </th>
+            <th> Worker Ex/Vat </th>
+            <th> Company Ex/Vat </th>
+            <th> Customer Ex/Vat </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Workingday(Slot-1)</td>
+            <td><input class="inputLenth" nbInput type="number" [(ngModel)]="overtimeRate1" fieldSize="small" /></td>
+            <!-- <td><input class="inputLenth" [(ngModel)]="startTime1" value="12:00" nbInput (click)="opensTime(1)" /></td>
+          <td><input class="inputLenth" [(ngModel)]="endTime1" nbInput (click)="openeTime(1)" /></td> -->
+            <td><input class="inputLenth" [(ngModel)]="workingHour1" nbInput type="text" fieldSize="small" /></td>
+            <td><input class="inputLenth" [(ngModel)]="regularPrice1" nbInput (change)="changeRegularPrice(1)"
+                fieldSize="small"></td>
+            <td>10</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>Workingday(Slot-2)</td>
+            <td><input class="inputLenth" nbInput type="number" [(ngModel)]="overtimeRate2" fieldSize="small" /></td>
+            <!-- <td><input class="inputLenth" [(ngModel)]="startTime2" value="12:00" nbInput (click)="opensTime(2)" /></td>
+          <td><input class="inputLenth" [(ngModel)]="endTime2" nbInput (click)="openeTime(2)" /></td> -->
+            <td><input class="inputLenth" [(ngModel)]="workingHour2" nbInput type="text" fieldSize="small" /></td>
+            <td><input class="inputLenth" [(ngModel)]="regularPrice2" nbInput (change)="changeRegularPrice(2)"
+                fieldSize="small"></td>
+            <td>10</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>Workingday(Slot-3)</td>
+            <td><input class="inputLenth" nbInput type="number" [(ngModel)]="overtimeRate3" fieldSize="small" /></td>
+            <!-- <td><input class="inputLenth" [(ngModel)]="startTime3" value="12:00" nbInput (click)="opensTime(3)" /></td>
+          <td><input class="inputLenth" [(ngModel)]="endTime3" nbInput (click)="openeTime(3)" /></td> -->
+            <td><input class="inputLenth" [(ngModel)]="workingHour3" nbInput type="text" fieldSize="small" /></td>
+            <td><input class="inputLenth" [(ngModel)]="regularPrice3" nbInput (change)="changeRegularPrice(3)"
+                fieldSize="small"></td>
+            <td>10</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>Workingday(Slot-4)</td>
+            <td><input class="inputLenth" nbInput type="number" [(ngModel)]="overtimeRate4" fieldSize="small" /></td>
+            <!-- <td><input class="inputLenth" [(ngModel)]="startTime4" value="12:00" nbInput (click)="opensTime(4)" /></td>
+          <td><input class="inputLenth" [(ngModel)]="endTime4" nbInput (click)="openeTime(4)" /></td> -->
+            <td><input class="inputLenth" [(ngModel)]="workingHour4" nbInput type="text" fieldSize="small" /></td>
+            <td><input class="inputLenth" [(ngModel)]="regularPrice4" nbInput (change)="changeRegularPrice(4)"
+                fieldSize="small"></td>
+            <td>10</td>
+            <td>19</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nb-card *ngIf="viewButton" class="overtimeButton">
+      <nb-card-body class="example-items-rows">
+        <button nbButton status="primary" type="button" (click)="saveOvertimeData()">Overtime Schedule</button>
+        <!-- <button nbButton status="info" type="button" (click)="saveOvertimeForFullMonth('top-right', 'info')">Set Ovettime For Full Month</button> -->
+      </nb-card-body>
+    </nb-card>
+
+  </div>

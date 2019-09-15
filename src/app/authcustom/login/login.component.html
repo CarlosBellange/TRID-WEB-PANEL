@@ -1,0 +1,45 @@
+<h1 id="title" class="title">Sign In</h1>
+
+
+
+<form (ngSubmit)="login()"  aria-labelledby="title" [formGroup]="Login">
+
+  <div class="form-control-group">
+    <label class="label" for="input-email">Email address:</label>
+    <input nbInput
+           fullWidth
+           pattern=".+@.+\..+"
+           placeholder="Email address"
+           formControlName="email"
+           id="email">
+   <ng-container *ngIf="formservice.isFieldValid(Login,'email')">
+     <p>This field is required</p>
+   </ng-container>
+   
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="input-password">Password:</label>
+    <input nbInput
+           fullWidth
+           type="password"
+           placeholder="Password"
+           formControlName="password"
+          >
+          <ng-container *ngIf="formservice.isFieldValid(Login,'password')">
+            <p>This field is required</p>
+          </ng-container>
+  </div>
+
+  
+
+  <button nbButton
+          fullWidth
+          status="success"
+          [disabled]="!Login.valid"
+          [class.btn-pulse]="false">
+    Sign In
+  </button>
+</form>
+
+
